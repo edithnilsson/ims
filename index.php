@@ -17,21 +17,47 @@ include 'closeDB.php';
 
 
 <!DOCTYPE html> 
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- make it so that the page width matches the users screen size -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- loads a CSS library, bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>Movie review</title>
+
+    <style>
+        body{
+            padding: 50px ; 
+        }
+        .container{
+            max-width: 900px ;
+            padding: 50px ;
+            margin: 0 auto;
+        } 
+        .form-group{
+            margin-bottom: 30 px
+        }
+    </style>
+
+</head>
 <body>
+    <div class="container">
     <h1> Welcome! </h1>
     <h3> On this webpage you can insert your own movie ratings. </h3>
     <h3> The ratings are from 1-5, with 5 being the best. Have fun :)</h3>
 
     <form action="/action_page.php"> <!--we have to change this, apperantly something in tutorials -->
         <label for="moviename">Movie Name:</label><br>
-        <input type="text" id="moviename" name="moviename"><br>
+        <input type="text" id="moviename" class="form-control" name="moviename"><br>
 
         <label for="year">Year:</label><br>
-        <input type="text" id="year" name="year"><br>
+        <input type="text" id="year" class="form-control" name="year"><br>
 
         <label for="rating">Rating:</label><br>
-        <select id="rating" name="rating">
+        <select id="rating" name="rating" class="form-control">
             <option value = 1> 1 </option>
             <option> 2 </option>
             <option> 3 </option>
@@ -43,14 +69,15 @@ include 'closeDB.php';
         <!--do we have to connect to the database to choose the genres, or can we just do it here? -->
         <!-- value = whats inserted to db (we need to take into account the FK) -->
         <label for="genre">Genre:</label> <br>
-        <select id="genre" name="genre">
+        <select id="genre" name="genre" class="form-control">
             <option value = 1> Action/Adventure </option>
             <option value = 2> Comedy </option>
             <option value = 3> Drama </option>
             <option value = 4> Fantasy/Sci-Fi </option>
         </select><br><br>
 
-        <input type="submit" value="Submit">
+        <input type="submit" class="form-control btn btn-primary" value="Submit">
+    </div>
     </form>
 
     <!--make a button to switch between pages -->
