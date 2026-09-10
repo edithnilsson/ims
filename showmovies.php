@@ -1,6 +1,13 @@
 <?php
 # is the php code to print all the movie data from database as an HTML table tag
 echo "this is the page to show movies rating table";
+
+# change page if clicked on buttom that has name insert_new
+if(isset($_POST['insert_new']))
+    {
+        header('Location:index.php');
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -46,6 +53,12 @@ echo "this is the page to show movies rating table";
         ?>
     </tbody>
 </table>
+
+
+<!--make a button to switch between pages -->
+    <form method="post">
+        <input type="submit" name=insert_new value="Insert new values">
+    </form>
 
 </body>
 </html>

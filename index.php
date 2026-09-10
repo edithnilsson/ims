@@ -1,13 +1,25 @@
 
 <?php
-echo "hello Edith";
+include 'db.php';
+
+
+
+
+# change page if clicked on buttom that has name see_ratings
+if(isset($_POST['see_ratings']))
+    {
+        header('Location:showmovies.php');
+    }
+
+include 'closeDB.php';
 
 ?>
+
 
 <!DOCTYPE html> 
 <html>
 <body>
-    <form action="/action_page.php">
+    <form action="/action_page.php"> <!--what is this -->
         <label for="moviename">Movie Name:</label><br>
         <input type="text" id="moviename" name="moviename"><br>
 
@@ -26,18 +38,13 @@ echo "hello Edith";
         <input type="submit" value="Submit">
     </form>
 
-
-<?php
-echo "hello Edith";
-
-include 'db.php';
-
+    <!--make a button to switch between pages -->
+    <form method="post">
+        <input type="submit" name=see_ratings value="See ratings">
+    </form>
 
 
 
-include 'closeDB.php';
-
-?>
 
 
 </body>
