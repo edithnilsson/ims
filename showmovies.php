@@ -15,6 +15,7 @@ if(isset($_POST['insert_new']))
 <body>
     <h1> Table of Movie Rating </h1>
     <br>
+
 <!-- code to create HTML table -->
 <table>
     <thead>
@@ -28,31 +29,59 @@ if(isset($_POST['insert_new']))
 
     <tbody>
         <?php
+
         // start database
         include 'db.php';
 
-        // read all info from both tables and choose the correct genre based on the genreid
-        $sql = "SELECT movies.mname, movies.myear, movies.mrating, genres.mgenre
-        FROM movies, genres
-        WHERE movies.mgenreid = genres.gid";
-        $result = $conn->query($sql);
+        # if you press search
+        if(isset($_POST['search_button']) && !empty($_POST['search_button']))
+            {
+            // define whats put into the search bar
+            $search = $_POST['search_button'];
 
+            // read all info from both tables and choose the correct genre based on the genreid
+            $sql = "SELECT movies.mname, movies.myear, movies.mrating, genres.mgenre
+            FROM movies, genres
+            WHERE movies.mname = '$search'
+            AND movies.mgenreid = genres.gid";
+            $result = $conn->query($sql);
+            }
 
-        // read data of each row
-        while($row=$result->fetch_assoc()){
-            echo "<tr>
-                    <td>" . $row["mname"] . "</td>
-                    <td>" . $row["myear"] . "</td>
-                    <td>" . $row["mgenre"] . "</td>
-                    <td>" . $row["mrating"] . "</td>
-                </tr>";
-
+        else{ # nothing in search bar, or it is not pressed
+            // read all info from both tables and choose the correct genre based on the genreid
+            $sql = "SELECT movies.mname, movies.myear, movies.mrating, genres.mgenre
+            FROM movies, genres
+            WHERE movies.mgenreid = genres.gid";
+            $result = $conn->query($sql);
         }
-        // close database
-        include 'closeDB.php';
+
+            // read data of each row
+            while($row=$result->fetch_assoc()){
+                echo "<tr>
+                        <td>" . $row["mname"] . "</td>
+                        <td>" . $row["myear"] . "</td>
+                        <td>" . $row["mgenre"] . "</td>
+                        <td>" . $row["mrating"] . "</td>
+                    </tr>";
+
+            }
+            // close database
+            include 'closeDB.php';
+        
+            
+        
+            
         ?>
     </tbody>
 </table>
+
+
+<form method="post">
+    <label for="site-search">Search the site:</label>
+    <input type="search" id="site-search" name="search_button" placeholder = Search />
+    <button>Search</button>
+</form>
+
 
 
 <!--make a button to switch between pages -->
