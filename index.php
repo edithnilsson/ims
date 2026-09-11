@@ -11,6 +11,12 @@ if(isset($_POST['see_ratings']))
         header('Location:showmovies.php');
     }
 
+
+    # i guess we have to do something like this
+    # INSERT INTO movies (mname, myear, mgenreid, mrating)
+    # VALUES (value1, value2, value3, ...);
+
+
 include 'closeDB.php';
 
 ?>
