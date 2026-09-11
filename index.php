@@ -4,6 +4,7 @@
 if(isset($_POST['see_ratings']))
     {
         header('Location:showmovies.php');
+        exit; # will not run the rest of the script
     }
 ?>
 
@@ -93,7 +94,7 @@ include 'db.php';
     # INSERT INTO movies (mname, myear, mgenreid, mrating)
     # VALUES (value1, value2, value3, ...);
 
-    if(isset($_POST['see_ratings']))
+    if(isset($_POST['submit']))
     {
 
   
@@ -110,7 +111,7 @@ include 'db.php';
     $stmt = $conn->prepare($sql);
 
     // s for string
-    $stmt->bind_param("ssii", $moviename, $year, $rating, $genre);
+    $stmt->bind_param("ssii", $moviename, $year, $genre, $rating);
     $result = $stmt->execute();
 
     if ($result) {
@@ -122,3 +123,4 @@ include 'db.php';
 
 include 'closeDB.php';
 ?>
+
