@@ -68,7 +68,7 @@ if(isset($_POST['see_ratings']))
             <option value = 4> Fantasy/Sci-Fi </option>
         </select><br><br>
 
-        <input type="submit" class="form-control btn btn-primary" value="Submit">
+        <input type="submit" class="form-control btn btn-primary" name="submit" value="Submit">
     </div>
     </form>
 
@@ -93,6 +93,11 @@ include 'db.php';
     # INSERT INTO movies (mname, myear, mgenreid, mrating)
     # VALUES (value1, value2, value3, ...);
 
+    isset($_POST['submit'])
+    {
+
+    
+
     # fetch data from POST request
     $moviename = $_POST['moviename'];
     $year = $_POST['year'];
@@ -112,7 +117,7 @@ include 'db.php';
     } else {
         echo "Error: " . $stmt->error;
     }
-
+    }
 
 include 'closeDB.php';
 ?>
