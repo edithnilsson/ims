@@ -93,9 +93,10 @@ include 'db.php';
     # INSERT INTO movies (mname, myear, mgenreid, mrating)
     # VALUES (value1, value2, value3, ...);
 
-    isset($_POST['submit'])
+    if(isset($_POST['see_ratings']))
     {
 
+  
     
 
     # fetch data from POST request
