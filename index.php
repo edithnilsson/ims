@@ -1,24 +1,10 @@
 
 <?php
-include 'db.php';
-
-
-
-
 # change page if clicked on buttom that has name see_ratings
 if(isset($_POST['see_ratings']))
     {
         header('Location:showmovies.php');
     }
-
-
-    # i guess we have to do something like this
-    # INSERT INTO movies (mname, myear, mgenreid, mrating)
-    # VALUES (value1, value2, value3, ...);
-
-
-include 'closeDB.php';
-
 ?>
 
 
@@ -55,7 +41,7 @@ include 'closeDB.php';
     <h3> On this webpage you can insert your own movie ratings. </h3>
     <h3> The ratings are from 1-5, with 5 being the best. Have fun :)</h3>
 
-    <form action="/action_page.php"> <!--we have to change this, apperantly something in tutorials -->
+    <form action="" method= "POST"> <!--we have to change this, apperantly something in tutorials -->
         <label for="moviename">Movie Name:</label><br>
         <input type="text" id="moviename" class="form-control" name="moviename"><br>
 
@@ -97,3 +83,36 @@ include 'closeDB.php';
 
 </body>
 </html>
+
+<?php
+include 'db.php';
+
+
+
+    # i guess we have to do something like this
+    # INSERT INTO movies (mname, myear, mgenreid, mrating)
+    # VALUES (value1, value2, value3, ...);
+
+    # fetch data from POST request
+    $moviename = $_POST['moviename'];
+    $year = $_POST['year'];
+    $rating = $_POST['rating'];
+    $genre = $_POST['genre'];
+
+    $sql = "INSERT INTO movies(mname, myear, mgenreid, mrating) VALUES (?, ?, ?, ?)";
+
+    $stmt = $conn->prepare($sql);
+
+    // s for string
+    $stmt->bind_param("ssii", $moviename, $year, $rating, $genre);
+    $result = $stmt->execute();
+
+    if ($result) {
+        echo "New record created successfully";
+    } else {
+        echo "Error: " . $stmt->error;
+    }
+
+
+include 'closeDB.php';
+?>
