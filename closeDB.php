@@ -4,5 +4,5 @@
 # L4
 // Close connection
 $conn->close();
-echo "<br> it died";
+#echo "<br> it died";
 ?>

@@ -1,6 +1,5 @@
 <?php
 # is the php code to print all the movie data from database as an HTML table tag
-echo "this is the page to show movies rating table";
 
 # change page if clicked on buttom that has name insert_new
 if(isset($_POST['insert_new']))
