@@ -1,13 +1,11 @@
 <?php
-# is the php code to print all the movie data from database as an HTML table tag
-
-# change page if clicked on buttom that has name insert_new
+# change page if clicked on the button with name "insert_new"
 if(isset($_POST['insert_new']))
     {
-        header('Location:index.php');
+        header('Location:index.php'); # redirect to this page
     }
-
 ?>
+
 
 <!DOCTYPE html> 
 <html lang="en">
@@ -19,25 +17,25 @@ if(isset($_POST['insert_new']))
 
     <!-- loads a CSS library, bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <title>Movie review</title>
+    <title>Movie review</title> <!-- specify page title -->
 
     <style>
         body{
-            padding: 50px ; 
+            padding: 50px ; /* Adds 50px of space around the inside of the web browser*/
         }
         .container{
-            max-width: 1000px ;
-            padding: 50px ;
-            margin: 0 auto;
+            max-width: 900px ; /* specifies the max width of the container */
+            padding: 50px ; /* adds 50px of space between the content of the container and its edges */
+            margin: 0 auto; /* centers the container in the web browser */ 
         } 
         .form-group{
-            margin-bottom: 30 px
+            margin-bottom: 30 px /* Creates 30px distance between different containers */ 
         }
     </style>
 
 </head>
 
-<!-- code to create HTML table -->
+<!--create HTML table -->
 <body>
 <div class="container">
     <h1> Table of Movie Rating </h1>
@@ -52,8 +50,9 @@ if(isset($_POST['insert_new']))
 
 <!-- code to create HTML table -->
 <table class="table table-striped"> <!-- make the rows striped -->
-  <thead class="table-dark"> <!-- adds a dark table header-->
+  <thead>
     <tr>
+        <!-- specifying the column names names -->
       <th scope="col">Name</th>
       <th scope="col">Year</th>
       <th scope="col">Genre</th>
@@ -63,33 +62,33 @@ if(isset($_POST['insert_new']))
 
     <tbody>
         <?php
-
-        // start database
+        # start database
         include 'db.php';
 
-        # if you press search
+        # if you press search and there is text in search form
+        # then you want to see only that movie
         if(isset($_POST['search_button']) && !empty($_POST['search_button']))
             {
-            // define whats put into the search bar
+            // save what is put into the search bar
             $search = $_POST['search_button'];
 
-            // read all info from both tables and choose the correct genre based on the genreid
+            // read all info from both tables and choose the row that matches the movie name and retrieve genre name instead of id
             $sql = "SELECT movies.mname, movies.myear, movies.mrating, genres.mgenre
             FROM movies, genres
             WHERE movies.mname = '$search'
             AND movies.mgenreid = genres.gid";
             $result = $conn->query($sql);
             }
-
-        else{ # nothing in search bar, or it is not pressed
-            // read all info from both tables and choose the correct genre based on the genreid
+        # if nothing is written in search bar, or it is not pressed
+        else{
+            // read all info from both tables and choose the correct genre based on the genreid (we don't want ID)
             $sql = "SELECT movies.mname, movies.myear, movies.mrating, genres.mgenre
             FROM movies, genres
             WHERE movies.mgenreid = genres.gid";
             $result = $conn->query($sql);
         }
 
-            // read data of each row
+            // read data of each row and display
             while($row=$result->fetch_assoc()){
                 echo "<tr>
                         <td>" . $row["mname"] . "</td>
@@ -100,15 +99,10 @@ if(isset($_POST['insert_new']))
 
             }
             // close database
-            include 'closeDB.php';
-        
-            
-        
-            
+            include 'closeDB.php';    
         ?>
     </tbody>
 </table>
-
 
 <!--make a button to switch between pages -->
     <form method="post">
@@ -116,7 +110,6 @@ if(isset($_POST['insert_new']))
     </form>
 
 </div>
-
 </body>
 </html>
 

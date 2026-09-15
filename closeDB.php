@@ -1,8 +1,6 @@
 <?php
-# closeDB.php -- is the php code to disconnect from the database.
-
 # L4
-// Close connection
+// Close connection from database
 $conn->close();
-#echo "<br> it died";
+#echo "it died";
 ?>
