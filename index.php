@@ -43,8 +43,14 @@ if(isset($_POST['see_ratings']))
     <h3> On this webpage you can insert your own movie ratings. </h3>
     <h3> The ratings are from 1-5, with 5 being the best. Have fun :)</h3>
 
-    <form action="" method= "POST"> <!-- -->
+
+    <!-- creates a form for the user to input movie reviews-->
+    <!-- the input is transfered to PHP by method= "POST". The data is then inserted into the database in insert.php.-->
+    <form action="" method= "POST"> 
+
+        <!-- lable name for movie name field-->
         <label for="moviename">Movie Name:</label><br>
+        <!-- creates the actual field in the form -->
         <input type="text" id="moviename" class="form-control" name="moviename"><br>
 
         <label for="year">Year:</label><br>
@@ -60,8 +66,7 @@ if(isset($_POST['see_ratings']))
         </select><br><br>
 
 
-        <!--do we have to connect to the database to choose the genres, or can we just do it here? -->
-        <!-- value = whats inserted to db (we need to take into account the FK) -->
+        <!-- value = whats inserted to db -->
         <label for="genre">Genre:</label> <br>
         <select id="genre" name="genre" class="form-control">
             <option value = 1> Action/Adventure </option>
@@ -76,10 +81,7 @@ if(isset($_POST['see_ratings']))
     </div>
     </form>
 
-    <!--make a button to switch between pages and adddfgdfj
-    <form method="post">
-        <input type="submit" name=see_ratings value="See ratings">
-    </form>-->
+    
  
 
 
