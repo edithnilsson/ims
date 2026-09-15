@@ -1,15 +1,11 @@
-Code Grading - Answers
+# Code Grading - Answers
 Orientation questions
-When working with new repositories, it’s a good idea to orient ourselves first with the files and the code in it. Doing so will give us a broad idea of what the repository does! In your answers file, write some notes on the following files.
-If this is your first time seeing .php files and code, you can still do the activity below. Do not worry if you do not understand the files at first.
 
-Without using Google/Documentation first!
-
-Create table.sql
+### Create table.sql
 What do you think that this file does? What columns are created? What data types are stored in our columns? And which size is the data allowed to be? Which column holds the primary key (and why?) What do you think AUTO INCREMENT does?
-It creates a table called “animals”. The columns “ID”, “name”, “domain” and “propulsion”. The data types are INT and VARCHAR(255). “ID” holds the primary key because we need to have the primary key as a unique value, the other columns might not be unique. AUTO INCREMENT increments the integer automatically for the ID column. 
+- It creates a table called “animals”. The columns “ID”, “name”, “domain” and “propulsion”. The data types are INT and VARCHAR(255). “ID” holds the primary key because we need to have the primary key as a unique value, the other columns might not be unique. AUTO INCREMENT increments the integer automatically for the ID column. 
 
-Get data.php
+### Get data.php
 Observe on line 1 and 28 that we need to open and close a .php file. Write down the syntax to do so.
 open: <?php
 close: ?>
@@ -38,16 +34,16 @@ Line 19 - 25: a conditional loop is introduced. Can you guess what the output is
 The output is the information stored about the animals in the database.
 In the loop, it continues to print info as long as there are more rows.
 
-Index.php
+### Index.php
 Can you guess what the purpose is of this file? Hint: Think about your IMS. If the user is on the index page, where would they be?
 This is the home page. The purpose of this file is to be a starting page that we could start working from.
 
-Insert_data.html
+### Insert_data.html
 What do you think a form is in HTML?
 A form is a way to import specific data from the user into the database.
 Take note of the post method, we will see it come back in the next file
 
-Insertdata.php
+### Insertdata.php
 New concept: In PHP, variables that start with $_are superglobals. Superglobals are special built-in arrays that PHP automatically creates and fills with data about the request, the server, the environment, etc.
 Line 16-21. What do you think the $_POST superglobal does?
 $_POST retrieves the information manually put in, in the HTML form with the same name. 
