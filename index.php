@@ -69,14 +69,16 @@ if(isset($_POST['see_ratings']))
             <option value = 4> Fantasy/Sci-Fi </option>
         </select><br><br>
 
-        <input type="submit" class="form-control btn btn-primary" name="submit" value="Submit">
+        <input type="submit" class="form-control btn btn-primary" name="submit" value="Submit"><br><br>
+
+         <input type="submit" name=see_ratings value="See ratings">
     </div>
     </form>
 
-    <!--make a button to switch between pages -->
+    <!--make a button to switch between pages 
     <form method="post">
         <input type="submit" name=see_ratings value="See ratings">
-    </form>
+    </form>-->
 
 
 
