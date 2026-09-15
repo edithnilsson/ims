@@ -1,3 +1,42 @@
-#  insert.php -- is the php code to receive the input from index.php HTML Form and 
-# insert the new movie data into the database. It should redirects back to index.php 
-# after success or fail (a message will be nice to have in both cases).
+
+
+
+<?php
+include 'db.php';
+
+
+
+    # i guess we have to do something like this
+    # INSERT INTO movies (mname, myear, mgenreid, mrating)
+    # VALUES (value1, value2, value3, ...);
+
+    if(isset($_POST['submit']))
+    {
+
+  
+    
+
+    # fetch data from POST request
+    $moviename = $_POST['moviename'];
+    $year = $_POST['year'];
+    $rating = $_POST['rating'];
+    $genre = $_POST['genre'];
+
+    $sql = "INSERT INTO movies(mname, myear, mgenreid, mrating) VALUES (?, ?, ?, ?)";
+
+    $stmt = $conn->prepare($sql);
+
+    // s for string
+    $stmt->bind_param("ssii", $moviename, $year, $genre, $rating);
+    $result = $stmt->execute();
+
+    if ($result) {
+        echo "New record created successfully";
+    } else {
+        echo "Error: " . $stmt->error;
+    }
+    }
+
+include 'closeDB.php';
+?>
+

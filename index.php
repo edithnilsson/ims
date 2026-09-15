@@ -1,5 +1,6 @@
 
 <?php
+include 'insert.php';
 # change page if clicked on buttom that has name see_ratings
 if(isset($_POST['see_ratings']))
     {
@@ -23,26 +24,26 @@ if(isset($_POST['see_ratings']))
 
     <style>
         body{
-            padding: 50px ; 
+            padding: 50px ; /* Adds 50px of space around the inside of the web browser*/
         }
         .container{
-            max-width: 900px ;
-            padding: 50px ;
-            margin: 0 auto;
+            max-width: 900px ; /* specifies the max width of the container */
+            padding: 50px ; /* adds 50px of space between the content of the container and its edges */
+            margin: 0 auto; /* centers the container in the web browser */ 
         } 
         .form-group{
-            margin-bottom: 30 px
+            margin-bottom: 30 px /* Creates 30px distance between different containers */ 
         }
     </style>
 
 </head>
 <body>
-    <div class="container">
-    <h1> Welcome! </h1>
+    <div class="container">     <!-- creates a container -->
+    <h1> Welcome! </h1>  <!-- text that is displayed in the container-->
     <h3> On this webpage you can insert your own movie ratings. </h3>
     <h3> The ratings are from 1-5, with 5 being the best. Have fun :)</h3>
 
-    <form action="" method= "POST"> <!--we have to change this, apperantly something in tutorials -->
+    <form action="" method= "POST"> <!-- -->
         <label for="moviename">Movie Name:</label><br>
         <input type="text" id="moviename" class="form-control" name="moviename"><br>
 
@@ -86,43 +87,3 @@ if(isset($_POST['see_ratings']))
 
 </body>
 </html>
-
-<?php
-include 'db.php';
-
-
-
-    # i guess we have to do something like this
-    # INSERT INTO movies (mname, myear, mgenreid, mrating)
-    # VALUES (value1, value2, value3, ...);
-
-    if(isset($_POST['submit']))
-    {
-
-  
-    
-
-    # fetch data from POST request
-    $moviename = $_POST['moviename'];
-    $year = $_POST['year'];
-    $rating = $_POST['rating'];
-    $genre = $_POST['genre'];
-
-    $sql = "INSERT INTO movies(mname, myear, mgenreid, mrating) VALUES (?, ?, ?, ?)";
-
-    $stmt = $conn->prepare($sql);
-
-    // s for string
-    $stmt->bind_param("ssii", $moviename, $year, $genre, $rating);
-    $result = $stmt->execute();
-
-    if ($result) {
-        echo "New record created successfully";
-    } else {
-        echo "Error: " . $stmt->error;
-    }
-    }
-
-include 'closeDB.php';
-?>
-
