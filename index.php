@@ -75,11 +75,11 @@ if(isset($_POST['see_ratings']))
     </div>
     </form>
 
-    <!--make a button to switch between pages 
+    <!--make a button to switch between pages and adddfgdfj
     <form method="post">
         <input type="submit" name=see_ratings value="See ratings">
     </form>-->
-
+ 
 
 
 
