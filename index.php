@@ -50,9 +50,11 @@ if(isset($_POST['see_ratings']))
 
         <!-- lable name for movie name field-->
         <label for="moviename">Movie Name:</label><br>
+        
         <!-- creates the actual field in the form -->
         <input type="text" class="form-control" name="moviename"><br>
 
+        
         <label for="year">Year:</label><br>
         <input type="text" class="form-control" name="year"><br>
 
