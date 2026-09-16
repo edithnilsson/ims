@@ -51,13 +51,13 @@ if(isset($_POST['see_ratings']))
         <!-- lable name for movie name field-->
         <label for="moviename">Movie Name:</label><br>
         <!-- creates the actual field in the form -->
-        <input type="text" id="moviename" class="form-control" name="moviename"><br>
+        <input type="text" class="form-control" name="moviename"><br>
 
         <label for="year">Year:</label><br>
-        <input type="text" id="year" class="form-control" name="year"><br>
+        <input type="text" class="form-control" name="year"><br>
 
         <label for="rating">Rating:</label><br>
-        <select id="rating" name="rating" class="form-control">
+        <select name="rating" class="form-control">
             <option value = 1> 1 </option>
             <option> 2 </option>
             <option> 3 </option>
@@ -68,7 +68,7 @@ if(isset($_POST['see_ratings']))
 
         <!-- value = whats inserted to db -->
         <label for="genre">Genre:</label> <br>
-        <select id="genre" name="genre" class="form-control">
+        <select name="genre" class="form-control">
             <option value = 1> Action/Adventure </option>
             <option value = 2> Comedy </option>
             <option value = 3> Drama </option>
