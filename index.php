@@ -1,6 +1,8 @@
 
 <?php
 include 'insert.php';
+
+
 # change page if clicked on buttom that has name see_ratings
 if(isset($_POST['see_ratings']))
     {
