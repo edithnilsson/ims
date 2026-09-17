@@ -44,7 +44,7 @@ if(isset($_POST['insert_new']))
 <!-- creates a search button -->
 <form method="post">
     <label for="site-search">Search the site:</label>
-    <input type="search" id="site-search" name="search_button" placeholder = Search />
+    <input type="search" name="search_button" placeholder = Search />
     <button>Search</button>
 </form>
 
